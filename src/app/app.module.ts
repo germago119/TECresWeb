@@ -32,7 +32,7 @@ import {ResponsiveModule} from 'ngx-responsive';
     HttpClientModule,
     FormsModule,
     CarouselModule.forRoot(),
-    ResponsiveModule
+    ResponsiveModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
