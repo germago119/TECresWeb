@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {VHomeComponent} from './vhome/vhome.component';
+import {VHomeComponent} from '../vhome/vhome.component';
 import {VAdminComponent} from '../vadmin/vadmin.component';
 import {PagenotfoundComponent} from '../pagenotfound/pagenotfound.component';
 
