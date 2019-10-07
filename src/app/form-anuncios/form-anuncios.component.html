@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Form Anuncios</title>
+    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="/assets/css/Profile-Edit-Form.css">
+</head>
+
+<body>
+    <div></div>
+    <!-- Start: Profile Edit Form -->
+    <div class="container profile profile-view" id="profile">
+        <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
+            </div>
+        </div>
+        <form>
+            <div class="form-row profile-row">
+                <div class="col-md-4 relative"><img src="/assets/img/bulletin_board.jpg" style="width: 340px;height: 400px;margin-top: 50px;"></div>
+                <div class="col-md-8">
+                    <h1>Crear Anuncio</h1>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Nombre del anuncio</label><input class="form-control" type="text" required="" maxlength="50" name="firstname"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Tipo del anuncio</label></div><select class="form-control" style="margin-top: -17px;"><option value="12" selected="">Normal</option><option value="13">Destacado</option><option value="14">Oro</option><option value="">Platino</option></select></div>
+                        <div
+                            class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Público Meta</label></div><select class="form-control" style="margin-top: -17px;"><option value="12" selected="">Normal</option></select></div>
+                    <div class="col"><button class="btn btn-primary form-btn" type="submit" style="background-color: rgb(0,255,56);margin-top: 30px;">Agregar Público Meta</button><button class="btn btn-primary form-btn" type="submit" style="margin-top: 15px;">Modificar Público Meta</button>
+                        <button
+                            class="btn btn-primary form-btn" type="submit" style="margin-top: 15px;background-color: rgb(255,0,0);">Eliminar Público Meta</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        <div class="form-group"><label style="margin-left: -15px;margin-top: 15px;">Tarjeta de crédito</label></div><input class="form-control" type="number" required="" style="margin-top: -17px;margin-left: -15px;"></div><label style="margin-top: 20px;">Clasificación</label>
+                    <select
+                        class="form-control">
+                        <option value="12" selected="">Venta</option>
+                        <option value="13">Alquiler</option>
+                        </select>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group"><label>Fecha de Inicio</label></div><input class="form-control" type="date" required=""></div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group"><label>Fecha de Fin</label></div><input class="form-control" type="date" required=""></div>
+                </div>
+                <hr>
+                <div class="form-row">
+                    <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">Guardar</button></div>
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+    <!-- End: Profile Edit Form -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/js/Profile-Edit-Form.js"></script>
+</body>
+
+</html>

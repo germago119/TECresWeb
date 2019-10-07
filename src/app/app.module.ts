@@ -25,6 +25,13 @@ import {GPerfilClientesComponent} from './gperfil-clientes/gperfil-clientes.comp
 import {GTiposAnuncioComponent} from './gtipos-anuncio/gtipos-anuncio.component';
 import {GUbicacionesComponent} from './gubicaciones/gubicaciones.component';
 import {GTiposInmuebleComponent} from './gtipos-inmueble/gtipos-inmueble.component';
+import { VclienteComponent } from './vcliente/vcliente.component';
+import { FormPropiedadesComponent } from './form-propiedades/form-propiedades.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { PublicoMetaComponent } from './publico-meta/publico-meta.component';
+import { FormAnunciosComponent } from './form-anuncios/form-anuncios.component';
+import { ListPropiedadesClienteComponent } from './list-propiedades-cliente/list-propiedades-cliente.component';
+import { ListAnunciosClienteComponent } from './list-anuncios-cliente/list-anuncios-cliente.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +51,14 @@ import {GTiposInmuebleComponent} from './gtipos-inmueble/gtipos-inmueble.compone
     GPerfilClientesComponent,
     GTiposAnuncioComponent,
     GUbicacionesComponent,
-    GTiposInmuebleComponent
+    GTiposInmuebleComponent,
+    VclienteComponent,
+    FormPropiedadesComponent,
+    PerfilUsuarioComponent,
+    PublicoMetaComponent,
+    FormAnunciosComponent,
+    ListPropiedadesClienteComponent,
+    ListAnunciosClienteComponent
   ],
   imports: [
     BrowserModule,

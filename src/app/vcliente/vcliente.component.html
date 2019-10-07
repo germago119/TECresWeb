@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Vista Cliente</title>
+    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+</head>
+
+<body style="background-image: url(&quot;/assets/img/Fondo2.jpg&quot;);background-size: cover;background-repeat: no-repeat;">
+    <nav class="navbar navbar-light navbar-expand-md" style="padding: 0px;background-color: #ffffff;">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><img class="rounded d-inline-block" src="/assets/img/Icono1.jpg" style="margin-right: 10px;margin-top: -3px;height: 42px;"><strong>Vista Cliente</strong></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse text-uppercase" id="navcol-1" style="font-size: 17px;color: rgb(34,34,34);">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Propiedades</strong></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Anuncios</strong></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Público Meta</strong></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Mi perfil</strong></a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div style="padding: 40px;background-image: url(&quot;none&quot;);background-size: cover;background-repeat: no-repeat;opacity: 1;">
+        <div class="jumbotron border rounded-circle" style="background-image: url(&quot;none&quot;);background-repeat: repeat;background-size: auto;padding: 40px;opacity: 0.85;">
+            <h1 class="text-center text-dark" style="padding: 40px;"><strong>Bienvenido Cliente de TECres!</strong></h1>
+            <p class="text-center text-dark">Esta plataforma permite a los dueños registrar sus propiedades para posteriormente crear un anuncio asociado a la misma. Así que no esperes más y comienza agregando tus propiedades.</p>
+            <p class="text-center"><a class="btn btn-primary text-center" role="button" href="#" routerLink="cliente/formPropiedades" style="filter: blur(0px) brightness(100%) contrast(200%) saturate(101%);background-color: rgb(28,100,225);">Agregar Propiedad</a></p>
+        </div>
+    </div>
+    <!-- Start: Pretty Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3></h3>
+                <p class="company-name" style="font-size: 20px;padding-top: 60px;">TECres © 2019</p>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p><span class="new-line-span">Tecnológico de Costa Rica</span>Cartago, Costa Rica</p>
+                </div>
+                <div><i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left"> +506 123456789</p>
+                </div>
+                <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="#" target="_blank">TecRes@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 footer-about">
+                <h4>Acerca de Nosotros</h4>
+                <p> TECres está conformado por cientos de agentes inmobiliarios calificados que comparten y administran miles de propiedades y clientes en una base de datos centralizada.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- End: Pretty Footer -->
+</body>
+
+<router-outlet></router-outlet>
+
+</html>
