@@ -32,6 +32,8 @@ import { PublicoMetaComponent } from './publico-meta/publico-meta.component';
 import { FormAnunciosComponent } from './form-anuncios/form-anuncios.component';
 import { ListPropiedadesClienteComponent } from './list-propiedades-cliente/list-propiedades-cliente.component';
 import { ListAnunciosClienteComponent } from './list-anuncios-cliente/list-anuncios-cliente.component';
+import { FormClientesComponent } from './form-clientes/form-clientes.component';
+import { FormCompradoresComponent } from './form-compradores/form-compradores.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ListAnunciosClienteComponent } from './list-anuncios-cliente/list-anunc
     PublicoMetaComponent,
     FormAnunciosComponent,
     ListPropiedadesClienteComponent,
-    ListAnunciosClienteComponent
+    ListAnunciosClienteComponent,
+    FormClientesComponent,
+    FormCompradoresComponent
   ],
   imports: [
     BrowserModule,

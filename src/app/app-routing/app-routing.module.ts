@@ -10,6 +10,8 @@ import {PublicoMetaComponent} from '../publico-meta/publico-meta.component';
 import {FormAnunciosComponent} from '../form-anuncios/form-anuncios.component';
 import {ListPropiedadesClienteComponent} from '../list-propiedades-cliente/list-propiedades-cliente.component';
 import {ListAnunciosClienteComponent} from '../list-anuncios-cliente/list-anuncios-cliente.component';
+import {FormClientesComponent} from '../form-clientes/form-clientes.component';
+import {FormCompradoresComponent} from '../form-compradores/form-compradores.component';
 import {PagenotfoundComponent} from '../pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: 'cliente/formAnuncios',component:FormAnunciosComponent},
   {path: 'cliente/listPropiedades',component:ListPropiedadesClienteComponent},
   {path: 'cliente/listAnuncios',component:ListAnunciosClienteComponent},
+  {path: 'general/formClientes',component: FormClientesComponent},
+  {path: 'general/formCompradores', component: FormCompradoresComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 
