@@ -36,6 +36,8 @@ import { FormClientesComponent } from './form-clientes/form-clientes.component';
 import { FormCompradoresComponent } from './form-compradores/form-compradores.component';
 import { ListPropiedadesGeneralComponent } from './list-propiedades-general/list-propiedades-general.component';
 import { DetallesPropiedadComponent } from './detalles-propiedad/detalles-propiedad.component';
+import { MensajesClienteComponent } from './mensajes-cliente/mensajes-cliente.component';
+import { DetalleMensajeComponent } from './detalle-mensaje/detalle-mensaje.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { DetallesPropiedadComponent } from './detalles-propiedad/detalles-propie
     FormClientesComponent,
     FormCompradoresComponent,
     ListPropiedadesGeneralComponent,
-    DetallesPropiedadComponent
+    DetallesPropiedadComponent,
+    MensajesClienteComponent,
+    DetalleMensajeComponent
   ],
   imports: [
     BrowserModule,

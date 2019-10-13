@@ -14,6 +14,8 @@ import {FormClientesComponent} from '../form-clientes/form-clientes.component';
 import {FormCompradoresComponent} from '../form-compradores/form-compradores.component';
 import {ListPropiedadesGeneralComponent} from '../list-propiedades-general/list-propiedades-general.component';
 import {DetallesPropiedadComponent} from '../detalles-propiedad/detalles-propiedad.component';
+import {MensajesClienteComponent} from '../mensajes-cliente/mensajes-cliente.component';
+import {DetalleMensajeComponent} from '../detalle-mensaje/detalle-mensaje.component';
 import {PagenotfoundComponent} from '../pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path: 'cliente/formAnuncios',component:FormAnunciosComponent},
   {path: 'cliente/listPropiedades',component:ListPropiedadesClienteComponent},
   {path: 'cliente/listAnuncios',component:ListAnunciosClienteComponent},
+  {path: 'cliente/mensajes',component:MensajesClienteComponent},
+  {path: 'cliente/mensajes/detalle',component: DetalleMensajeComponent},
   {path: 'general',component:VHomeComponent},
   {path: 'general/formClientes',component: FormClientesComponent},
   {path: 'general/formCompradores', component: FormCompradoresComponent},
