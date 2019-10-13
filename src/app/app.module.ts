@@ -34,6 +34,8 @@ import { ListPropiedadesClienteComponent } from './list-propiedades-cliente/list
 import { ListAnunciosClienteComponent } from './list-anuncios-cliente/list-anuncios-cliente.component';
 import { FormClientesComponent } from './form-clientes/form-clientes.component';
 import { FormCompradoresComponent } from './form-compradores/form-compradores.component';
+import { ListPropiedadesGeneralComponent } from './list-propiedades-general/list-propiedades-general.component';
+import { DetallesPropiedadComponent } from './detalles-propiedad/detalles-propiedad.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { FormCompradoresComponent } from './form-compradores/form-compradores.co
     ListPropiedadesClienteComponent,
     ListAnunciosClienteComponent,
     FormClientesComponent,
-    FormCompradoresComponent
+    FormCompradoresComponent,
+    ListPropiedadesGeneralComponent,
+    DetallesPropiedadComponent
   ],
   imports: [
     BrowserModule,
