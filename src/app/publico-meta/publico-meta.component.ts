@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-publico-meta',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicoMetaComponent implements OnInit {
 
-  constructor() { }
+  publicoMetaModificar:boolean;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.publicMetaModificarChanged.subscribe(publicoMetaModificar => this.publicoMetaModificar = publicoMetaModificar);
+  }
+
+  setPublicoMetaModificar():void{
+    this.dataService.setFalsePublicoMetaModificar();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-list-propiedades-cliente',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPropiedadesClienteComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
+  }
+
+  refreshPage(){
+    window.location.reload();
+  }
+
+  setPropiedadesModificar():void{
+    this.dataService.setTruePropiedadesModificar();
   }
 
 }

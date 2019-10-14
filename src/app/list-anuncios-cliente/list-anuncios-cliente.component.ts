@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-list-anuncios-cliente',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAnunciosClienteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
+  refreshPage(){
+    window.location.reload();
+  }
+
+  setAnunciosModificar():void{
+    this.dataService.setTrueAnunciosModificar();
+  }
 }

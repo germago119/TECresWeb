@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Form Propiedades</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="/assets/css/Pretty-Registration-Form.css">
 </head>
 
 <body>
@@ -93,10 +92,17 @@
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Precio</label></div>
                     <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
-                </div><button class="btn btn-light submit-button" type="button">Agregar</button></form>
+                </div>
+                <div *ngIf="propiedadesModificar">
+                    <button class="btn btn-light submit-button" type="button" (click) = "setPropiedadesModificar()" routerLink="/cliente/listPropiedades">Agregar</button>
+                </div>
+                <div *ngIf="!propiedadesModificar">
+                    <button class="btn btn-light submit-button" type="button" routerLink="/cliente">Agregar</button>
+                </div>
+            </form>
         </div>
     </div>
     <!-- End: Pretty Registration Form -->
 </body>
-
+<router-outlet></router-outlet>
 </html>

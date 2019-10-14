@@ -48,7 +48,11 @@
                                 <div class="col"><label>Nombre Descriptivo</label><input class="form-control" type="text" required="" maxlength="50" style="margin-bottom: 50px;"></div>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">Guardar</button></div>
+                                <div class="col-md-12 content-right">
+                                    <div *ngIf = "publicoMetaModificar"><button class="btn btn-primary form-btn" type="submit" (click) = "setPublicoMetaModificar()" routerLink = "/cliente/formAnuncios">Guardar</button></div>
+                                    <div *ngIf = "!publicoMetaModificar"><button class="btn btn-primary form-btn" type="submit" routerLink = "/cliente">Guardar</button></div>
+                                    <button class="btn btn-danger form-btn" type="reset" style="background-color:rgb(56,235,74);" routerLink = "/cliente">Volver al inicio</button>
+                                </div>
                             </div>
                     </div>
                 </div>
@@ -60,5 +64,5 @@
     <script src="/assets/bootstrap/bootstrap.min.js"></script>
     <script src="/assets/js/Profile-Edit-Form.js"></script>
 </body>
-
+<router-outlet></router-outlet>
 </html>

@@ -12,4 +12,7 @@ export class DetallesPropiedadComponent implements OnInit {
   ngOnInit() {
   }
 
+  refreshPage(){
+    window.location.reload();
+  }
 }

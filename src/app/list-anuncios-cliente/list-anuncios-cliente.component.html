@@ -27,13 +27,16 @@
                     <h6>Fecha Fin</h6>
                     <h6>Vendedor Asociado</h6>
                     <h6>Público meta</h6>
-                    <h6>Tipo de anuncio</h6><button class="btn btn-primary" type="button" style="background-color: rgb(255,15,0);">Eliminar</button><button class="btn btn-primary" type="button" style="background-color: rgb(0,117,255);margin-left: 20px;">Modificar</button></div>
+                    <h6>Tipo de anuncio</h6>
+                    <button class="btn btn-primary" type="button" style="background-color: rgb(255,15,0);" (click) = "refreshPage()">Eliminar</button>
+                    <button class="btn btn-primary" type="button" style="background-color: rgb(0,117,255);margin-left: 20px;" (click)= "setAnunciosModificar()" routerLink = "/cliente/formAnuncios">Modificar</button></div>
             </div>
         </div>
     </div>
+    <h3 class="text-right"><button class="btn btn-primary" type="button" style="background-color: rgb(54,210,60);margin-right: 50px;" routerLink="/cliente">Volver al inicio</button></h3>
     <!-- End: Block Responsive Item List -->
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/bootstrap/bootstrap.min.js"></script>
 </body>
-
+<router-outlet></router-outlet>
 </html>

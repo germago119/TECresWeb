@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-form-anuncios',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormAnunciosComponent implements OnInit {
 
-  constructor() { }
+  anunciosModificar:boolean;
+  
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.anunciosModificarChanged.subscribe(anunciosModificar => this.anunciosModificar = anunciosModificar);
+  }
+
+  refreshPage(){
+    window.location.reload();
+  }
+
+  setAnunciosModificar():void{
+    this.dataService.setFalseAnunciosModificar();
+  }
+
+  setPublicoMetaModificar():void{
+    this.dataService.setTruePublicoMetaModificar();
   }
 
 }

@@ -11,7 +11,7 @@
 </head>
 
 <body style="background-image: url(&quot;/assets/img/IconoCorreo.png&quot;);">
-    <h3 style="background-color: #ef3529;">Detalle del mensaje<button class="btn btn-primary" type="button" style="background-color: rgb(49,218,76);margin-left: 900px;">Volver atrás</button></h3>
+    <h3 style="background-color: #ef3529;">Detalle del mensaje<button class="btn btn-primary" type="button" style="background-color: rgb(49,218,76);margin-left: 900px;" routerLink="/cliente/mensajes">Volver atrás</button></h3>
     <!-- Start: Profile Edit Form -->
     <div class="container profile profile-view" id="profile" style="background-color: #454141;color: rgb(253,254,255);">
         <div class="row">
@@ -61,5 +61,5 @@
     <script src="/assets/bootstrap/bootstrap.min.js"></script>
     <script src="/assets/js/Profile-Edit-Form.js"></script>
 </body>
-
+<router-outlet></router-outlet>
 </html>

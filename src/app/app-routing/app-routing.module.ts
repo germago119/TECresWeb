@@ -29,11 +29,11 @@ const routes: Routes = [
   {path: 'cliente/listAnuncios',component:ListAnunciosClienteComponent},
   {path: 'cliente/mensajes',component:MensajesClienteComponent},
   {path: 'cliente/mensajes/detalle',component: DetalleMensajeComponent},
-  {path: 'general',component:VHomeComponent},
-  {path: 'general/formClientes',component: FormClientesComponent},
-  {path: 'general/formCompradores', component: FormCompradoresComponent},
-  {path: 'general/listPropiedades',component: ListPropiedadesGeneralComponent},
-  {path: 'general/detallesPropiedad',component: DetallesPropiedadComponent},
+  {path: '',component:VHomeComponent},
+  {path: 'formClientes',component: FormClientesComponent},
+  {path: 'formCompradores', component: FormCompradoresComponent},
+  {path: 'listPropiedades',component: ListPropiedadesGeneralComponent},
+  {path: 'detallesPropiedad',component: DetallesPropiedadComponent},
   {path: '**', component: PagenotfoundComponent}
 ];
 
@@ -41,7 +41,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes,{ onSameUrlNavigation: 'reload' })
   ],
   exports: [RouterModule]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-form-propiedades',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormPropiedadesComponent implements OnInit {
 
-  constructor() { }
+  propiedadesModificar:boolean;
+
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
+    this.dataService.propiedadesModificarChanged.subscribe(propiedadesModificar => this.propiedadesModificar = propiedadesModificar);
+  }
+
+  setPropiedadesModificar():void{
+    this.dataService.setFalsePropiedadesModificar();
   }
 
 }
