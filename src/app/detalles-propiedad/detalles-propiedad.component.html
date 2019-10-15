@@ -218,12 +218,18 @@
                     <p>Escriba el mensaje que desea enviar al dueño de la propiedad. Además, tome en cuenta que TECres se encargará de enviar su información de comprador al anunciante.</p>
                 </div>
             </div>
+        <form>
             <div class="row">
-                <div class="col text-center"><textarea style="width: 450px;height: 200px;"></textarea></div>
+                <div class="col text-center">
+                    <textarea ngModel #descripcion="ngModel" [class.is-invalid]="descripcion.invalid && descripcion.touched" class="form-control"   required maxlength="100"  name="descripcion" style="width: 450px;height: 200px;"></textarea>
+                    <small [class.d-none]="descripcion.valid ||descripcion.untouched" class="text-danger">Descripción es necesario</small>
+                </div>
             </div>
+        
             <div class="row text-center">
                 <div class="col"><button class="btn btn-primary" type="button" style="background-color: rgb(255,92,0);" (click)= "refreshPage()">Enviar Mensaje</button></div>
             </div>
+        </form>
         </div>
     </div>
     <div class="row">

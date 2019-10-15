@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
     <link rel="stylesheet" href="/assets/css/Pretty-Footer.css">
+
 </head>
 
 <body style="background-image: url(&quot;/assets/img/FondoPrincipal2.jpg&quot;);background-size: cover;background-repeat: no-repeat;">
@@ -35,77 +36,58 @@
     </div>
     <section class="bg-secondary border rounded" style="background-color: #e3e3e3;margin-left: 80px;margin-bottom: 0px;margin-right: 80px;margin-top: -10p;opacity: 0.90;color: rgb(248,252,255);">
         <h1 class="text-center">Búsquedas</h1>
+    <form> 
         <div class="row">
             <div class="col"><label style="margin-left: 60px;"><strong>Ubicación:</strong></label>
                 <div class="row">
-                    <div class="col">
-                        <!-- Start: Custom select Bootstrap --><div>
-
-<div class="input-group mb-3 edtFormMarg">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Options</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
-
-</div>
-                        <!-- End: Custom select Bootstrap -->
+                    <div class="col"><label class="col-form-label">Provincia</label></div>
+                    <div class="col"><select><option value="12" selected="">Alajuela</option></select></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label class="col-form-label">Cantón</label></div>
+                    <div class="col"><select><option value="12" selected="">Alajuela</option></select></div>
+                </div>
+                <div class="row">
+                    <div class="col"><label class="col-form-label">Distrito</label></div>
+                    <div class="col"><select><option value="12" selected="">Desamparados</option></select></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class ="form-group">
+                <label>
+                    <strong>Cantidad de habitaciones:</strong>
+                </label>
+                <input ngModel #cantHabitaciones="ngModel" [class.is-invalid]="cantHabitaciones.invalid && cantHabitaciones.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="cantHabitaciones" style="margin-top: 5px;margin-left: 0px;">
+                <small [class.d-none]="cantHabitaciones.valid || cantHabitaciones.untouched" class="text-danger">La cantidad de habitaciones es requerida y debe ingresar un valor válido</small>
+                </div>
+            </div>
+            <div class="col" style="padding-right: 0px;"><label><strong>Rango de precios (Colones):</strong></label>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col">
+                            <label class="col-form-label">Valor mínimo</label>
+                        </div>
+                        <div class="col">
+                            <input  ngModel #valMin="ngModel" [class.is-invalid]="valMin.invalid && valMin.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="valMin">
+                            <small [class.d-none]="valMin.valid || valMin.untouched" class="text-danger">El valor mínimo es requerido y debe ingresar un número válido</small>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <!-- Start: Custom select Bootstrap --><div>
-
-<div class="input-group mb-3 edtFormMarg">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Options</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
-
-</div>
-                        <!-- End: Custom select Bootstrap -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <!-- Start: Custom select Bootstrap --><div>
-
-<div class="input-group mb-3 edtFormMarg">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Options</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
-
-</div>
-                        <!-- End: Custom select Bootstrap -->
+                    <div class="form-group">
+                        <div class="col">
+                            <label class="col-form-label">Valor máximo</label>
+                        </div>
+                        <div class="col">
+                            <input ngModel #valMax="ngModel" [class.is-invalid]="valMax.invalid && valMax.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="valMax">
+                            <small [class.d-none]="valMax.valid || valMax.untouched" class="text-danger">El valor máximo es requerido y debe ingresar un número válido</small>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col"><label><strong>Cantidad de habitaciones:</strong></label><input type="number" required="" style="margin-top: 5px;margin-left: 0px;"></div>
-            <div class="col" style="padding-right: 0px;"><label><strong>Rango de precios:</strong></label>
-                <!-- Start: Range selector - slider -->
-                <div><span><strong>0</strong></span><input type="text" id="ex2" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"><span><strong>10000</strong></span></div>
-                <!-- End: Range selector - slider -->
-            </div>
-            <div class="col"><button class="btn btn-dark" type="button" style="margin-top: 30px;padding-right: 45px;margin-left: 0px;padding-left: 45px;" routerLink="listPropiedades">Buscar</button></div>
+            <div class="col"><button class="btn btn-dark" type="button" style="margin-top: 30px;padding-right: 45px;margin-left: 0px;padding-left: 45px;" routerLink="/listPropiedades" >Buscar</button></div>
         </div>
+    </form>
     </section>
     <!-- Start: Pretty Footer -->
     <footer>
@@ -136,8 +118,7 @@
     <!-- End: Pretty Footer -->
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/bootstrap/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
-    <script src="/assets/js/Range-selector---slider.js"></script>
+
 </body>
 <router-outlet></router-outlet>
 </html>

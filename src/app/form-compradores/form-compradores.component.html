@@ -29,26 +29,71 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Nombre</label><input class="form-control" type="text" required="" maxlength="20" name="firstname"></div>
-                            <div class="form-group"><label>Segundo Apellido</label><input class="form-control" type="text" required="" maxlength="20" name="firstname"></div>
-                            <div class="form-group"><label>Fecha de Nacimiento</label></div><input class="form-control" type="date" required="" style="margin-top: -15px;"></div>
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input ngModel #nombre="ngModel" [class.is-invalid]="nombre.invalid && nombre.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nombre">
+                                <small [class.d-none]="nombre.valid || nombre.untouched" class="text-danger">Debe insertar un nombre y que sea válido</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Segundo Apellido</label>
+                                <input ngModel #segundoApellido="ngModel" [class.is-invalid]="segundoApellido.invalid && segundoApellido.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="segundoApellido">
+                                <small [class.d-none]="segundoApellido.valid || segundoApellido.untouched" class="text-danger">Debe insertar un segundo apellido y que sea válido</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha de Nacimiento</label>
+                            </div>
+                            <input ngModel #fechaNacimiento="ngModel" [class.is-invalid]="fechaNacimiento.invalid && fechaNacimiento.touched" class="form-control" type="date" required style="margin-top: -15px;" name="fechaNacimiento">
+                            <small [class.d-none]="fechaNacimiento.valid || fechaNacimiento.untouched" class="text-danger">Fecha es requerido</small>
+                        </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Primer Apellido</label><input class="form-control" type="text" required="" maxlength="20" name="lastname"></div>
-                            <div class="form-group"><label>Género</label></div><select class="form-control" style="margin-top: -17px;"><option value="12" selected="">Hombre</option><option value="13">Mujer</option><option value="14">Otro</option></select><label style="margin-top: 17px;">Ingresos al mes (Colones)</label>
-                            <input
-                                class="form-control" type="number" required=""></div>
+                            <div class="form-group">
+                                <label>Primer Apellido</label>
+                                <input ngModel #primerApellido="ngModel" [class.is-invalid]="primerApellido.invalid && primerApellido.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="primerApellido">
+                                <small [class.d-none]="primerApellido.valid || primerApellido.untouched" class="text-danger">Debe insertar un primer apellido y que sea válido</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Género</label>
+                            </div>
+                            <select class="form-control" style="margin-top: -17px;">
+                                <option value="12" selected>Hombre</option>
+                                <option value="13">Mujer</option>
+                                <option value="14">Otro</option>
+                            </select>
+                            <label style="margin-top: 17px;">Ingresos al mes (Colones)</label>
+                            <input ngModel #ingresos="ngModel" [class.is-invalid]="ingresos.invalid && ingresos.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="ingresos" >
+                            <small [class.d-none]="ingresos.valid || ingresos.untouched" class="text-danger">Ingresos es requerido y debe ser un valor válido</small>
+                        </div>
                     </div>
-                    <div
-                        class="form-group"><label style = "margin-top: 20px;"><strong>Ubicación:</strong></label></div><label style="margin-left: 20px;">Provincia</label><select class="form-control" style="width: 300px;"><option value="12" selected="">Alajuela</option></select><label style="margin-left: 20px;margin-top: 20px;">Cantón</label>
-                <select
-                    class="form-control" style="width: 300px;">
+                    <div class="form-group">
+                        <label style = "margin-top: 20px;"><strong>Ubicación:</strong></label>
+                    </div>
+                    <label style="margin-left: 20px;">Provincia</label>
+                    <select class="form-control" style="width: 300px;">
+                        <option value="12" selected="">Alajuela</option>
+                    </select>
+                    <label style="margin-left: 20px;margin-top: 20px;">Cantón</label>
+                <select class="form-control" style="width: 300px;">
                     <option value="12" selected="">Alajuela</option>
-                    </select><label style="margin-left: 20px;margin-top: 20px;">Distrito</label><select class="form-control" style="width: 300px;"><option value="12" selected="">Desamparados</option></select>
+                    </select>
+                    <label style="margin-left: 20px;margin-top: 20px;">Distrito</label>
+                    <select class="form-control" style="width: 300px;">
+                        <option value="12" selected="">Desamparados</option>
+                    </select>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="margin-top: 20px;">Usuario</label></div><input class="form-control" type="text" required="" maxlength="20" style="margin-top: -17px;"></div>
+                            <div class="form-group">
+                                <label style="margin-top: 20px;">Usuario</label>
+                            </div>
+                            <input ngModel #usuario="ngModel" [class.is-invalid]="usuario.invalid && usuario.touched" class="form-control" type="text"  required maxlength="30" name="usuario" style="margin-top: -17px;">
+                            <small [class.d-none]="usuario.valid || usuario.untouched" class="text-danger">Usuario es necesario</small>
+                        </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group" style="margin-top: 0px;"><label style="margin-top: 20px;">Contraseña</label></div><input class="form-control" type="password" required="" maxlength="20" style="margin-top: -17px;"></div>
+                            <div class="form-group" style="margin-top: 0px;">
+                                <label style="margin-top: 20px;">Contraseña</label>
+                            </div>
+                            <input  ngModel #contrasena="ngModel" [class.is-invalid]="contrasena.invalid && contrasena.touched" class="form-control"  required maxlength="30" name="contrasena"  type="password" style="margin-top: -17px;">
+                            <small [class.d-none]="contrasena.valid || contrasena.untouched" class="text-danger">Contraseña es necesario</small>
+                        </div>
                     </div>
                     <hr>
                     <div class="form-row">
