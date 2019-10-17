@@ -17,24 +17,60 @@
             <form class="custom-form" style="font-size: 18px;">
                 <h1>Registrar Propiedad</h1>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Título de la propiedad</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" required="" maxlength="20"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Título de la propiedad</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #titulo="ngModel" [class.is-invalid]="titulo.invalid && titulo.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="titulo">
+                        <small [class.d-none]="titulo.valid || titulo.untouched" class="text-danger">Debe insertar un título de propiedad y que sea válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Descripción</label></div>
-                    <div class="col-sm-6 input-column"><textarea class="form-control" required="" maxlength="50"></textarea></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Descripción</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <textarea ngModel #descripcion="ngModel" [class.is-invalid]="descripcion.invalid && descripcion.touched" class="form-control"   required maxlength="350"  name="descripcion"></textarea>
+                        <small [class.d-none]="descripcion.valid ||descripcion.untouched" class="text-danger">Descripción es necesario</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Tipo de Inmueble</label></div>
-                    <div class="col-sm-6 input-column"><select class="form-control"><option value="12" selected="">Lote</option><option value="13">Casa</option><option value="14">Apartamento</option></select></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="email-input-field">Tipo de Inmueble</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <select class="form-control">
+                            <option value="12" selected="">Lote</option>
+                            <option value="13">Casa</option>
+                            <option value="14">Apartamento</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Tipo de Piso</label></div>
-                    <div class="col-sm-6 input-column"><select class="form-control"><option value="12" selected="">Concreto lujado</option><option value="13">Cerámica</option><option value="14">Porcelanato</option></select></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="email-input-field">Tipo de Piso</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <select class="form-control">
+                            <option value="12" selected="">Concreto lujado</option>
+                            <option value="13">Cerámica</option>
+                            <option value="14">Porcelanato</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Ubicación:</label></div>
-                    <div class="col-sm-6 input-column" style="padding-top: 50px;"><label>Provincia</label><select class="form-control" style="margin-bottom: 15px;"><option value="12" selected="">Alajuela</option></select><label>Cantón</label><select class="form-control" style="margin-bottom: 15px;"><option value="12" selected="">Alajuela</option></select><label>Distrito</label>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="email-input-field">Ubicación:</label>
+                    </div>
+                    <div class="col-sm-6 input-column" style="padding-top: 50px;">
+                        <label>Provincia</label><select class="form-control" style="margin-bottom: 15px;">
+                            <option value="12" selected="">Alajuela</option>
+                        </select>
+                        <label>Cantón</label>
+                        <select class="form-control" style="margin-bottom: 15px;">
+                            <option value="12" selected="">Alajuela</option>
+                        </select>
+                        <label>Distrito</label>
                         <select
                             class="form-control">
                             <option value="12" selected="">Desamparados</option>
@@ -42,56 +78,116 @@
                     </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Dirección Exacta</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" required="" maxlength="20"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Dirección Exacta</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #direccion="ngModel" [class.is-invalid]="direccion.invalid && direccion.touched" class="form-control" type="text"  required maxlength="150"  name="direccion">
+                        <small [class.d-none]="direccion.valid || direccion.untouched" class="text-danger">Debe insertar una dirección</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Metros cuadrados del terreno</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Metros cuadrados del terreno</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #tamanoTerreno="ngModel" [class.is-invalid]="tamanoTerreno.invalid && tamanoTerreno.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="tamanoTerreno">
+                        <small [class.d-none]="tamanoTerreno.valid || tamanoTerreno.untouched" class="text-danger">El tamaño del terreno es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Metros cuadrados de construcción</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Metros cuadrados de construcción</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #tamanoConstruccion="ngModel" [class.is-invalid]="tamanoConstruccion.invalid && tamanoConstruccion.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="tamanoConstruccion">
+                        <small [class.d-none]="tamanoConstruccion.valid || tamanoConstruccion.untouched" class="text-danger">El tamaño de la construcción es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Cantidad de habitaciones</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Cantidad de habitaciones</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #cantHabitaciones="ngModel" [class.is-invalid]="cantHabitaciones.invalid && cantHabitaciones.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="cantHabitaciones">
+                        <small [class.d-none]="cantHabitaciones.valid || cantHabitaciones.untouched" class="text-danger">La cantidad de habitaciones es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Cantidad de baños</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Cantidad de baños</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #cantBanos="ngModel" [class.is-invalid]="cantBanos.invalid && cantBanos.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="cantBanos">
+                        <small [class.d-none]="cantBanos.valid || cantBanos.untouched" class="text-danger">La cantidad de baños es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Cantidad de parqueos</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Cantidad de parqueos</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #cantParqueos="ngModel" [class.is-invalid]="cantParqueos.invalid && cantParqueos.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="cantParqueos">
+                        <small [class.d-none]="cantParqueos.valid || cantParqueos.untouched" class="text-danger">La cantidad de parqueos es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Niveles</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Niveles</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #niveles="ngModel" [class.is-invalid]="niveles.invalid && niveles.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="niveles">
+                        <small [class.d-none]="niveles.valid || niveles.untouched" class="text-danger">Niveles es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Gimnasio</label></div>
-                    <div class="col-sm-6 input-column"><input type="checkbox"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Gimnasio</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input type="checkbox"></div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Piscina</label></div>
-                    <div class="col-sm-6 input-column"><input type="checkbox"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Piscina</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input type="checkbox">
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Parqueo para visitas</label></div>
-                    <div class="col-sm-6 input-column"><input type="checkbox"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Parqueo para visitas</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input type="checkbox"></div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Foto principal de la propiedad</label></div>
-                    <div class="col"><input type="file" accept="image/*" required="" style="margin-top: 15px;"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Foto principal de la propiedad</label>
+                    </div>
+                    <div class="col">
+                        <input ngModel #fotoPrincipal="ngModel" [class.is-invalid]="fotoPrincipal.invalid && fotoPrincipal.touched" class="form-control"  name="fotoPrincipal" type="file" accept="image/*" required style="margin-top: 15px;">
+                        <small [class.d-none]="fotoPrincipal.valid || fotoPrincipal.untouched" class="text-danger">Foto principal es necesario</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Listado de fotos</label></div>
-                    <div class="col"><input type="file" accept="image/*" multiple="" style="margin-top: 15px;margin-right: 30px;"></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Listado de fotos</label>
+                    </div>
+                    <div class="col">
+                        <input ngModel #fotosSecundarias="ngModel" [class.is-invalid]="fotosSecundarias.invalid && fotosSecundarias.touched" class="form-control"  name="fotosSecundarias" type="file" accept="image/*" multiple="" required style="margin-top: 15px;margin-right: 30px;">
+                        <small [class.d-none]="fotosSecundarias.valid || fotosSecundarias.untouched" class="text-danger">Las fotos secundarias son necesarias</small>
+                    </div>
                 </div>
                 <div class="form-row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Precio</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="number" required=""></div>
+                    <div class="col-sm-4 label-column">
+                        <label class="col-form-label" for="name-input-field">Precio</label>
+                    </div>
+                    <div class="col-sm-6 input-column">
+                        <input ngModel #precio="ngModel" [class.is-invalid]="precio.invalid && precio.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="precio">
+                        <small [class.d-none]="precio.valid || precio.untouched" class="text-danger">Precio es necesario y debe ser un valor válido</small>
+                    </div>
                 </div>
                 <div *ngIf="propiedadesModificar">
                     <button class="btn btn-light submit-button" type="button" (click) = "setPropiedadesModificar()" routerLink="/cliente/listPropiedades">Agregar</button>

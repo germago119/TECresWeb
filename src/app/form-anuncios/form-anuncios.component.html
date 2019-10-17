@@ -27,13 +27,32 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Nombre del anuncio</label><input class="form-control" type="text" required="" maxlength="50" name="firstname"></div>
+                            <div class="form-group">
+                                <label>Nombre del anuncio</label>
+                                <input  ngModel #nombre="ngModel" [class.is-invalid]="nombre.invalid && nombre.touched" class="form-control" type="text"  required maxlength="50" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nombre">
+                                <small [class.d-none]="nombre.valid || nombre.untouched" class="text-danger">Debe insertar un nombre de anuncio y que sea válido</small>
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Tipo del anuncio</label></div><select class="form-control" style="margin-top: -17px;"><option value="12" selected="">Normal</option><option value="13">Destacado</option><option value="14">Oro</option><option value="">Platino</option></select></div>
+                            <div class="form-group">
+                                <label>Tipo del anuncio</label>
+                            </div>
+                            <select class="form-control" style="margin-top: -17px;">
+                                <option value="12" selected="">Normal</option>
+                                <option value="13">Destacado</option>
+                                <option value="14">Oro</option>
+                                <option value="">Platino</option>
+                            </select>
+                        </div>
                         <div
                             class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Público Meta</label></div><select class="form-control" style="margin-top: -17px;"><option value="12" selected="">Normal</option></select></div>
+                            <div class="form-group">
+                                <label>Público Meta</label>
+                            </div>
+                            <select class="form-control" style="margin-top: -17px;">
+                                <option value="12" selected="">Normal</option>
+                            </select>
+                        </div>
                     <div class="col">
                         <button class="btn btn-primary form-btn" type="submit" style="background-color: rgb(0,255,56);margin-top: 30px;" (click) = "setPublicoMetaModificar()" routerLink="/cliente/publicoMeta">Agregar Público Meta</button>
                         <button class="btn btn-primary form-btn" type="submit" style="margin-top: 15px;" (click) = "setPublicoMetaModificar()" routerLink="/cliente/publicoMeta">Modificar Público Meta</button>
@@ -42,7 +61,13 @@
                 </div>
                 <div class="form-group">
                     <div class="col">
-                        <div class="form-group"><label style="margin-left: -15px;margin-top: 15px;">Tarjeta de crédito</label></div><input class="form-control" type="number" required="" style="margin-top: -17px;margin-left: -15px;"></div><label style="margin-top: 20px;">Clasificación</label>
+                        <div class="form-group">
+                            <label style="margin-left: -15px;margin-top: 15px;">Tarjeta de crédito</label>
+                        </div>
+                        <input ngModel #tarjetaCredito="ngModel" [class.is-invalid]="tarjetaCredito.invalid && tarjetaCredito.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="tarjetaCredito" style="margin-top: -17px;margin-left: -15px;">
+                        <small [class.d-none]="tarjetaCredito.valid || tarjetaCredito.untouched" class="text-danger">La tarjeta de crédito es necesaria y debe ser un valor válido</small>
+                    </div>
+                        <label style="margin-top: 20px;">Clasificación</label>
                     <select
                         class="form-control">
                         <option value="12" selected="">Venta</option>
@@ -51,9 +76,19 @@
                 </div>
                 <div class="form-row">
                     <div class="col-sm-12 col-md-6">
-                        <div class="form-group"><label>Fecha de Inicio</label></div><input class="form-control" type="date" required=""></div>
+                        <div class="form-group">
+                            <label>Fecha de Inicio</label>
+                        </div>
+                        <input ngModel #fechaInicio="ngModel" [class.is-invalid]="fechaInicio.invalid && fechaInicio.touched" class="form-control" type="date" required  name="fechaInicio">
+                        <small [class.d-none]="fechaInicio.valid ||fechaInicio.untouched" class="text-danger">Fecha de inicio es requerida</small>
+                    </div>
                     <div class="col-sm-12 col-md-6">
-                        <div class="form-group"><label>Fecha de Fin</label></div><input class="form-control" type="date" required=""></div>
+                        <div class="form-group">
+                            <label>Fecha de Fin</label>
+                        </div>
+                        <input ngModel #fechaFin="ngModel" [class.is-invalid]="fechaFin.invalid && fechaFin.touched" class="form-control" type="date" required  name="fechaFin">
+                        <small [class.d-none]="fechaFin.valid ||fechaFin.untouched" class="text-danger">Fecha de fin es requerida</small>
+                    </div>
                 </div>
                 <hr>
                 <div class="form-row">

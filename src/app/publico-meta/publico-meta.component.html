@@ -28,24 +28,60 @@
                         <hr>
                         <div class="form-row">
                             <div class="col-sm-12 col-md-6">
-                                <div class="form-group"><label>Género</label></div><select class="form-control" style="margin-top: -15px;"><option value="12" selected="">Hombres</option><option value="13">Mujeres</option><option value="14">Ambos</option></select></div>
+                                <div class="form-group">
+                                    <label>Género</label>
+                                </div>
+                                <select class="form-control" style="margin-top: -15px;">
+                                    <option value="12" selected="">Hombres</option>
+                                    <option value="13">Mujeres</option>
+                                    <option value="14">Otro</option>
+                                </select>
+                            </div>
                             <div class="col-sm-12 col-md-6">
-                                <div class="form-group"><label>Ingresos</label></div><input class="form-control" type="number" required="" style="margin-top: -15px;"></div>
+                                <div class="form-group">
+                                    <label>Ingresos</label>
+                                </div>
+                                <input ngModel #ingresos="ngModel" [class.is-invalid]="ingresos.invalid && ingresos.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="ingresos" style="margin-top: -15px;">
+                                <small [class.d-none]="ingresos.valid || ingresos.untouched" class="text-danger">Ingresos es necesario y debe ser un valor válido</small>
+                            </div>
                             <div class="col-sm-12 col-md-6">
-                                <div class="form-group"><label style="margin-top: 10px;">Edad mínima</label></div><input class="form-control" type="number" required="" style="margin-top: -15px;"></div>
+                                <div class="form-group">
+                                    <label style="margin-top: 10px;">Edad mínima</label>
+                                </div>
+                                <input ngModel #edadMin="ngModel" [class.is-invalid]="edadMin.invalid && edadMin.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="edadMin" style="margin-top: -15px;">
+                                <small [class.d-none]="edadMin.valid || edadMin.untouched" class="text-danger">Edad mínima es necesaria y debe ser un valor válido</small>
+                            </div>
                             <div class="col-sm-12 col-md-6">
-                                <div class="form-group"><label style="margin-top: 10px;">Edad máxima</label></div><input class="form-control" type="number" required="" style="margin-top: -15px;"></div>
+                                <div class="form-group">
+                                    <label style="margin-top: 10px;">Edad máxima</label>
+                                </div>
+                                <input ngModel #edadMax="ngModel" [class.is-invalid]="edadMax.invalid && edadMax.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="edadMax" style="margin-top: -15px;">
+                                <small [class.d-none]="edadMax.valid || edadMax.untouched" class="text-danger">Edad máxima es necesaria y debe ser un valor válido</small>
+                            </div>
                         </div>
                         <div class="form-row">
-                            <div class="col"><label class="col-form-label" style="margin-top: 20px;">Ubicación:</label></div>
-                        </div><label style="margin-left: 90px;">Provincia</label><select class="form-control" style="margin-left: 90px;width: 300px;"><option value="12" selected="">Alajuela</option></select><label style="margin-left: 90px;margin-top: 20px;">Cantón</label>
-                        <select
-                            class="form-control" style="width: 300px;margin-left: 90px;">
+                            <div class="col">
+                                <label class="col-form-label" style="margin-top: 20px;">Ubicación:</label>
+                            </div>
+                        </div>
+                        <label style="margin-left: 90px;">Provincia</label>
+                        <select class="form-control" style="margin-left: 90px;width: 300px;">
                             <option value="12" selected="">Alajuela</option>
-                            </select><label style="margin-top: 20px;margin-left: 90px;">Distrito</label><select class="form-control" style="margin-left: 90px;width: 300px;"><option value="12" selected="">Desamparados</option></select>
+                        </select>
+                        <label style="margin-left: 90px;margin-top: 20px;">Cantón</label>
+                        <select class="form-control" style="width: 300px;margin-left: 90px;">
+                            <option value="12" selected="">Alajuela</option>
+                            </select>
+                            <label style="margin-top: 20px;margin-left: 90px;">Distrito</label>
+                            <select class="form-control" style="margin-left: 90px;width: 300px;">
+                                <option value="12" selected="">Desamparados</option>
+                            </select>
                             <hr>
                             <div class="form-row">
-                                <div class="col"><label>Nombre Descriptivo</label><input class="form-control" type="text" required="" maxlength="50" style="margin-bottom: 50px;"></div>
+                                <div class="col"><label>Nombre Descriptivo</label>
+                                    <input ngModel #nombre="ngModel" [class.is-invalid]="nombre.invalid && nombre.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nombre" style="margin-bottom: 50px;">
+                                    <small [class.d-none]="nombre.valid || nombre.untouched" class="text-danger">Debe insertar un nombre descriptivo y que sea válido</small>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12 content-right">
