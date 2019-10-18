@@ -19,7 +19,7 @@
                 <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
             </div>
         </div>
-        <form>
+        <form #compradorForm ="ngForm" (ngSubmit)="onSubmit(compradorForm)">
             <div class="form-row profile-row">
                 <div class="col-md-4 relative">
                     <div class="avatar"></div>
@@ -54,10 +54,10 @@
                             <div class="form-group">
                                 <label>Género</label>
                             </div>
-                            <select class="form-control" style="margin-top: -17px;">
-                                <option value="12" selected>Hombre</option>
-                                <option value="13">Mujer</option>
-                                <option value="14">Otro</option>
+                            <select class="form-control" ngModel #genero="ngModel" name="genero" style="margin-top: -17px;">
+                                <option value="Hombre" >Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                                <option value="Otro">Otro</option>
                             </select>
                             <label style="margin-top: 17px;">Ingresos al mes (Colones)</label>
                             <input ngModel #ingresos="ngModel" [class.is-invalid]="ingresos.invalid && ingresos.touched" class="form-control" type="number"  required pattern="^[1-9]\d*$" name="ingresos" >
@@ -68,16 +68,16 @@
                         <label style = "margin-top: 20px;"><strong>Ubicación:</strong></label>
                     </div>
                     <label style="margin-left: 20px;">Provincia</label>
-                    <select class="form-control" style="width: 300px;">
-                        <option value="12" selected="">Alajuela</option>
+                    <select  class = "form-control" ngModel #provincia="ngModel" name="provincia" required (change)="provinciaSeleccionada($event.target.value)" style="width: 300px;">
+                        <option *ngFor="let provincia of provinciasList" [value]="provincia">{{provincia}}</option>
                     </select>
                     <label style="margin-left: 20px;margin-top: 20px;">Cantón</label>
-                <select class="form-control" style="width: 300px;">
-                    <option value="12" selected="">Alajuela</option>
+                <select class = "form-control" ngModel #canton="ngModel" name="canton" required (change)="cantonSeleccionado($event.target.value)" style="width: 300px;">
+                    <option *ngFor = "let canton of cantonesList" [value]="canton" >{{canton}}</option>
                     </select>
                     <label style="margin-left: 20px;margin-top: 20px;">Distrito</label>
-                    <select class="form-control" style="width: 300px;">
-                        <option value="12" selected="">Desamparados</option>
+                    <select  class = "form-control" ngModel #distrito="ngModel" name="distrito" required style="width: 300px;">
+                        <option *ngFor="let distrito of distritosList" [value]="distrito">{{distrito}}</option>
                     </select>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
@@ -97,7 +97,10 @@
                     </div>
                     <hr>
                     <div class="form-row">
-                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit" style="background-color: rgb(244,86,18);margin-top: 0px;padding-bottom: 15px;" routerLink="">Crear Comprador</button></div>
+                        <div class="col-md-12 content-right">
+                            <button  [disabled]="compradorForm.form.invalid" class="btn btn-primary form-btn" type="submit" style="background-color: rgb(244,86,18);margin-top: 0px;padding-bottom: 15px;">Crear Comprador</button>
+                            <button  class="btn btn-primary form-btn" type="button" style="background-color: rgb(54,210,60);margin-top: -20px;" routerLink = "" >Volver al inicio</button>
+                        </div>
                     </div>
             </div>
     </div>

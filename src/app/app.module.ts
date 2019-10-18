@@ -38,6 +38,7 @@ import { ListPropiedadesGeneralComponent } from './list-propiedades-general/list
 import { DetallesPropiedadComponent } from './detalles-propiedad/detalles-propiedad.component';
 import { MensajesClienteComponent } from './mensajes-cliente/mensajes-cliente.component';
 import { DetalleMensajeComponent } from './detalle-mensaje/detalle-mensaje.component';
+import {DataService} from './data.service';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,7 @@ import { DetalleMensajeComponent } from './detalle-mensaje/detalle-mensaje.compo
     CarouselModule.forRoot(),
     ResponsiveModule.forRoot()
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -34,20 +34,34 @@
     </div>
     <section class="bg-secondary border rounded" style="background-color: #e3e3e3;margin-left: 80px;margin-bottom: 0px;margin-right: 80px;margin-top: -10p;opacity: 0.90;color: rgb(248,252,255);">
         <h1 class="text-center">Búsquedas</h1>
-    <form> 
+    <form #busquedaForm="ngForm" (ngSubmit)="onSubmit(busquedaForm)"> 
         <div class="row">
             <div class="col"><label style="margin-left: 60px;"><strong>Ubicación:</strong></label>
                 <div class="row">
                     <div class="col"><label class="col-form-label">Provincia</label></div>
-                    <div class="col"><select><option value="12" selected="">Alajuela</option></select></div>
+                    <div class="col">
+                        <div class = "form-group">
+                            <select class = "form-control" ngModel #provincia="ngModel" name="provincia" required (change)="provinciaSeleccionada($event.target.value)">
+                                <option *ngFor="let provincia of provinciasList" [value]="provincia" >{{provincia}}</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col"><label class="col-form-label">Cantón</label></div>
-                    <div class="col"><select><option value="12" selected="">Alajuela</option></select></div>
+                    <div class="col">
+                        <select  class = "form-control" ngModel #canton="ngModel" name="canton" required (change)="cantonSeleccionado($event.target.value)" >
+                            <option *ngFor = "let canton of cantonesList" [value]="canton" >{{canton}}</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col"><label class="col-form-label">Distrito</label></div>
-                    <div class="col"><select><option value="12" selected="">Desamparados</option></select></div>
+                    <div class="col">
+                        <select  class = "form-control" ngModel #distrito="ngModel" name="distrito" required >
+                            <option *ngFor="let distrito of distritosList" [value]="distrito">{{distrito}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -83,7 +97,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col"><button class="btn btn-dark" type="button" style="margin-top: 30px;padding-right: 45px;margin-left: 0px;padding-left: 45px;" routerLink="/listPropiedades" >Buscar</button></div>
+            <div class="col"><button   [disabled]="busquedaForm.form.invalid" class="btn btn-dark" type="submit" style="margin-top: 30px;padding-right: 45px;margin-left: 0px;padding-left: 45px;"  >Buscar</button></div>
         </div>
     </form>
     </section>
