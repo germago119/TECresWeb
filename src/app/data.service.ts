@@ -5,6 +5,12 @@ import {Provincia} from './Models/Provincia';
 import {Canton} from './Models/Canton';
 import {PerfilCliente} from './Models/PerfilCliente';
 import {Distrito} from './Models/Distrito';
+import {Cliente} from './Models/Cliente';
+import {TipoInmueble} from './Models/TipoInmueble';
+import {TipoPiso} from './Models/TipoPiso';
+import {PropiedadesClienteJSON} from './Models/PropiedadesClienteJSON';
+import {TipoAnuncio} from './Models/TipoAnuncio';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +24,7 @@ export class DataService {
   public propiedadesModificarChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.propiedadesModificar);
   public anunciosModificarChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.anunciosModificar);
   public publicMetaModificarChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.publicoMetaModifcar);
+  public cedulaCliente:number = 169109175;
 
   constructor(private hhtpClient:HttpClient) {
     console.log("Service is working!");
@@ -39,6 +46,27 @@ export class DataService {
      return this.hhtpClient.get<PerfilCliente[]>('/api/PERFIL_DE_CLIENTE');
    }
 
+   getDataCliente(cedulaCliente:number){
+     return this.hhtpClient.get<Cliente>('/api/CLIENTE/' + cedulaCliente.toString());
+
+   }
+
+   getDataTipoInmueble(){
+     return this.hhtpClient.get<TipoInmueble[]>('/api/TIPO_INMUEBLE');
+   }
+
+   getDataTipoPiso(){
+     return this.hhtpClient.get<TipoPiso[]>('/api/TIPO_PISO');
+   }
+
+   getDataPropiedadesCliente(cedulaCliente:number){
+    return this.hhtpClient.get<PropiedadesClienteJSON>('/api/PropiedadesCliente/' + cedulaCliente.toString());
+   }
+
+   getDataTipoAnuncio(){
+     return this.hhtpClient.get<TipoAnuncio[]>('/api/TIPO_ANUNCIO');
+   }
+
    postCliente(nombre:string, apellido1:string, apellido2:string, nacionalidad:string, cedula:number, perfilCliente:string, correo:string, usuario:string,contrasena:string){
       this.hhtpClient.post('/api/CLIENTE',{
         Nombre:nombre,
@@ -55,14 +83,35 @@ export class DataService {
         data=>{
           console.log('POST request is succesful',data);
           alert("Se agregó con éxito el cliente");
+          window.location.href = '';
         },
         error=>{
           console.log('Error',error);
           alert("Se tuvo un problema al agregar el cliente");
+          window.location.href = '';
         });
    }
 
+   deleteDataCliente(cedulaCliente: number) {
+    this.hhtpClient.delete('/api/CLIENTE/' + cedulaCliente.toString())
+    .subscribe(
+        (val) => {
+            console.log('DELETE call successful value returned in body',
+                        val);
+            alert("El cliente fue eliminado con exito");
+            window.location.href = '';
+        },
+        response => {
+            console.log('DELETE call in error', response);
+        },
+        () => {
+            console.log('The DELETE observable is now completed.');
+        });
+  }
 
+   getCedulaCliente():number{
+     return this.cedulaCliente;
+   }
 
   //Métodos para compartir los datos del observable
   getPropiedadesModificar():boolean {

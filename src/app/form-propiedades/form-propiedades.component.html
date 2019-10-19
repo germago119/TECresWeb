@@ -14,7 +14,7 @@
     <!-- Start: Pretty Registration Form -->
     <div class="row register-form" style="background-color: #3874ea;">
         <div class="col-md-8 offset-md-2">
-            <form class="custom-form" style="font-size: 18px;">
+            <form #propiedadesForm="ngForm" class="custom-form" style="font-size: 18px;">
                 <h1>Registrar Propiedad</h1>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column">
@@ -39,10 +39,8 @@
                         <label class="col-form-label" for="email-input-field">Tipo de Inmueble</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <select class="form-control">
-                            <option value="12" selected="">Lote</option>
-                            <option value="13">Casa</option>
-                            <option value="14">Apartamento</option>
+                        <select class="form-control" ngModel #tipoInmueble="ngModel" name="tipoInmueble" required>
+                            <option *ngFor="let tipoInmueble of tipoInmuebleList" [value]="tipoInmueble.Nombre">{{tipoInmueble.Nombre}}</option>
                         </select>
                     </div>
                 </div>
@@ -51,10 +49,8 @@
                         <label class="col-form-label" for="email-input-field">Tipo de Piso</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <select class="form-control">
-                            <option value="12" selected="">Concreto lujado</option>
-                            <option value="13">Cerámica</option>
-                            <option value="14">Porcelanato</option>
+                        <select class="form-control" ngModel #tipoPiso="ngModel" name="tipoPiso" required>
+                            <option *ngFor= "let tipoPiso of tipoPisoList" [value]="tipoPiso.Nombre">{{tipoPiso.Nombre}}</option>
                         </select>
                     </div>
                 </div>
@@ -63,17 +59,17 @@
                         <label class="col-form-label" for="email-input-field">Ubicación:</label>
                     </div>
                     <div class="col-sm-6 input-column" style="padding-top: 50px;">
-                        <label>Provincia</label><select class="form-control" style="margin-bottom: 15px;">
-                            <option value="12" selected="">Alajuela</option>
+                        <label>Provincia</label><select class = "form-control" ngModel #provincia="ngModel" name="provincia" required (change)="provinciaSeleccionada($event.target.value)" style="margin-bottom: 15px;">
+                            <option  *ngFor="let provincia of provinciasList" [value]="provincia" >{{provincia}}</option>
                         </select>
                         <label>Cantón</label>
-                        <select class="form-control" style="margin-bottom: 15px;">
-                            <option value="12" selected="">Alajuela</option>
+                        <select  class = "form-control" ngModel #canton="ngModel" name="canton" required (change)="cantonSeleccionado($event.target.value)" style="margin-bottom: 15px;">
+                            <option  *ngFor = "let canton of cantonesList" [value]="canton" >{{canton}}</option>
                         </select>
                         <label>Distrito</label>
                         <select
-                            class="form-control">
-                            <option value="12" selected="">Desamparados</option>
+                            class = "form-control" ngModel #distrito="ngModel" name="distrito" required>
+                            <option *ngFor="let distrito of distritosList" [value]="distrito">{{distrito}}</option>
                             </select>
                     </div>
                 </div>
@@ -142,17 +138,17 @@
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column">
-                        <label class="col-form-label" for="name-input-field">Gimnasio</label>
+                        <label class="col-form-label">Gimnasio</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="checkbox"></div>
+                        <input type="checkbox" ngModel #gimnasio="ngModel"  name="gimnasio"></div>
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column">
                         <label class="col-form-label" for="name-input-field">Piscina</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="checkbox">
+                        <input type="checkbox" ngModel #piscina="ngModel"  name="piscina">
                     </div>
                 </div>
                 <div class="form-row form-group">
@@ -160,7 +156,7 @@
                         <label class="col-form-label" for="name-input-field">Parqueo para visitas</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="checkbox"></div>
+                        <input type="checkbox" ngModel #parqueoVisitas="ngModel"  name="parqueoVisitas"></div>
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column">
@@ -198,6 +194,7 @@
             </form>
         </div>
     </div>
+    {{propiedadesForm.value | json }}
     <!-- End: Pretty Registration Form -->
 </body>
 <router-outlet></router-outlet>

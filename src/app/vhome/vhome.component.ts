@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
-import {Provincia} from '../Models/Provincia';
-import { Canton } from '../Models/Canton';
-import {Distrito} from '../Models/Distrito';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -43,6 +40,7 @@ export class VHomeComponent implements OnInit {
   onSubmit(busquedaForm:NgForm):void{
  
     console.log(busquedaForm.value);
+    window.location.href = 'listPropiedades'
   }
 
 }

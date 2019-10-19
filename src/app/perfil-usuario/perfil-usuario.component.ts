@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../data.service';
+import {Cliente} from '../Models/Cliente';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  constructor() { }
+  cedulaCliente:number;
+  cliente:Cliente = new Cliente(null,null,'','','','','','','','');
+
+  constructor(private dataService:DataService) { 
+    this.cedulaCliente = this.dataService.getCedulaCliente();
+    this.dataService.getDataCliente(this.cedulaCliente).subscribe(data => {
+      this.cliente = data; 
+      
+    });
+  }
 
   ngOnInit() {
+  }
+
+  eliminarCliente():void{
+    this.dataService.deleteDataCliente(this.dataService.getCedulaCliente());
   }
 
 }

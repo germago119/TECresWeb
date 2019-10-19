@@ -37,11 +37,9 @@
                             <div class="form-group">
                                 <label>Tipo del anuncio</label>
                             </div>
-                            <select class="form-control" style="margin-top: -17px;">
-                                <option value="12" selected="">Normal</option>
-                                <option value="13">Destacado</option>
-                                <option value="14">Oro</option>
-                                <option value="">Platino</option>
+                            <select class="form-control" ngModel #tipoAnuncio="ngModel" name="tipoAnuncio" required style="margin-top: -17px;">
+                                <option *ngFor= "let tipoAnuncio of tipoAnuncioList" [value]="tipoAnuncio.Nombre">{{tipoAnuncio.Nombre}}</option>
+ 
                             </select>
                         </div>
                         <div

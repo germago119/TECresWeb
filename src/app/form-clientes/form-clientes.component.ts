@@ -30,7 +30,10 @@ export class FormClientesComponent implements OnInit {
       clienteForm.value.primerApellido,clienteForm.value.segundoApellido,clienteForm.value.nacionalidad,
       clienteForm.value.cedula,clienteForm.value.perfilCliente,clienteForm.value.correo,
       clienteForm.value.usuario,clienteForm.value.contrasena);
+
   }
+  
+  
 
 
 }

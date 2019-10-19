@@ -14,25 +14,24 @@
     <h1 class="text-center" style="font-family: 'Autour One', cursive;color: rgb(255,255,255);background-color: #29738b;">Mis propiedades</h1>
     <!-- Start: Block Responsive Item List -->
     <div class="row">
-        <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width:300px;min-height:300px;">
-            <div class="card" style="width:100%;height:100%;"><a href="#"><img class="img-fluid card-img-top" src="/assets/img/bourdelle.jpg" style="height:200px;"></a>
+        <div  *ngFor= "let propiedad of propiedadesClienteList" class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width:300px;min-height:300px;">
+            <div class="card" style="width:100%;height:100%;"><a><img class="img-fluid card-img-top" src="/assets/img/bourdelle.jpg" style="height:200px;"></a>
                 <div class="card-body">
-                    <h5>Título de la propiedad</h5>
-                    <p>Descripción</p><label><strong>ID de la propiedad:</strong></label><label style="margin-left: 20px;">&nbsp;01</label>
-                    <h5>Tipo Inmueble</h5>
-                    <h5>Tipo piso</h5>
+                    <h5>Título de la propiedad: {{propiedad.Titulo}}</h5>
+                    <p>Descripción: {{propiedad.Descripcion}}</p><label><strong>ID de la propiedad:</strong></label><label style="margin-left: 20px;">&nbsp;{{propiedad.ID}}</label>
+                    <h5>Tipo Inmueble: {{propiedad.Nombre_Inmueble}}</h5>
                     <h5>Ubicación</h5>
-                    <h5>Dirección Exacta</h5>
-                    <h6>Metros cuadrados terreno</h6>
-                    <h6>Metros cuadrados construcción</h6>
-                    <h6>Cantidad de habitaciones&nbsp;</h6>
-                    <h6>Cantidad de baños</h6>
-                    <h6>Cantidad de parqueos</h6>
-                    <h6>Niveles</h6>
-                    <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Gimnasio</label></div>
-                    <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Piscina</label></div>
-                    <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Parqueo para visitas</label></div>
-                    <h2 style="color: rgb(3,83,128);">₡25000<br></h2>
+                    <h5>Dirección Exacta: {{propiedad.Direccion_Exacta}}</h5>
+                    <h6>Metros cuadrados terreno: {{propiedad.Tamano_Terreno}}</h6>
+                    <h6>Metros cuadrados construcción: {{propiedad.Tamano_Construccion}}</h6>
+                    <h6>Cantidad de habitaciones&nbsp; {{propiedad.Cant_Habitaciones}}</h6>
+                    <h6>Cantidad de baños: {{propiedad.Cant_Banos}}</h6>
+                    <h6>Cantidad de parqueos: {{propiedad.Cant_Parqueos}}</h6>
+                    <h6>Niveles: {{propiedad.Niveles}}</h6>
+                    <div><input  type="checkbox" [checked]="propiedad.Gimnasio"><label >Gimnasio</label></div>
+                    <div ><input type="checkbox" [checked]="propiedad.Piscina" ><label class="form-check-label" for="formCheck-1">Piscina</label></div>
+                    <div ><input type="checkbox" [checked]="propiedad.Parqueo_Visitas" ><label class="form-check-label" for="formCheck-1">Parqueo para visitas</label></div>
+                    <h2 style="color: rgb(3,83,128);">₡ {{propiedad.Precio}}<br></h2>
                     <button class="btn btn-primary" type="button" (click)="setPropiedadesModificar()" routerLink="/cliente/formPropiedades">Modificar</button>
                     <button class="btn btn-primary" type="button" style="padding-right: 12px;margin-left: 20px;background-color: rgb(255,92,0);" routerLink="/cliente/formAnuncios">Agregar Anuncio</button>
                     <button class="btn btn-primary" type="button" style="padding-right: 12px;margin-left: 10px;background-color: rgb(255,15,0);" (click)="refreshPage()">Eliminar&nbsp;</button>
@@ -40,6 +39,9 @@
             </div>
         </div>
     </div>
+
+    
+
     <h3 class="text-right"><button class="btn btn-primary" type="button" style="background-color: rgb(54,210,60);margin-right: 50px;" routerLink="/cliente">Volver al inicio</button></h3>
     <!-- End: Block Responsive Item List -->
     <script src="/assets/js/jquery.min.js"></script>

@@ -30,30 +30,30 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input ngModel #nombre="ngModel" [class.is-invalid]="nombre.invalid && nombre.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nombre">
+                                <input ngModel #nombre="ngModel" [class.is-invalid]="nombre.invalid && nombre.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nombre" placeholder = "{{cliente.Nombre}}">
                                 <small [class.d-none]="nombre.valid || nombre.untouched" class="text-danger">Debe insertar un nombre y que sea válido</small>
 
                             </div>
                             <div class="form-group">
                                 <label>Segundo Apellido</label>
-                                <input ngModel #segundoApellido="ngModel" [class.is-invalid]="segundoApellido.invalid && segundoApellido.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="segundoApellido" >
+                                <input ngModel #segundoApellido="ngModel" [class.is-invalid]="segundoApellido.invalid && segundoApellido.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="segundoApellido" placeholder = "{{cliente.Apellido2}}" >
                                 <small [class.d-none]="segundoApellido.valid || segundoApellido.untouched" class="text-danger">Debe insertar un segundo apellido y que sea válido</small>
                             </div>
                             <div class="form-group">
                                 <label>Cédula</label>
-                                <input ngModel #cedula="ngModel" [class.is-invalid]="cedula.invalid && cedula.touched" class="form-control" type="number"  required pattern="^[1-9]-?\d{4}-?\d{4}$" name="cedula" >
+                                <input ngModel #cedula="ngModel" [class.is-invalid]="cedula.invalid && cedula.touched" class="form-control" type="number"  required pattern="^[1-9]-?\d{4}-?\d{4}$" name="cedula" placeholder = "{{cliente.Cedula}}" >
                                 <small [class.d-none]="cedula.valid || cedula.untouched" class="text-danger">Error, este espacio debe ser completado y concordar con el patrón corecto de una cédula</small>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label>Primer Apellido</label>
-                                <input ngModel #primerApellido="ngModel" [class.is-invalid]="primerApellido.invalid && primerApellido.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="primerApellido" >
+                                <input ngModel #primerApellido="ngModel" [class.is-invalid]="primerApellido.invalid && primerApellido.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="primerApellido" placeholder = "{{cliente.Apellido1}}" >
                                 <small [class.d-none]="primerApellido.valid || primerApellido.untouched" class="text-danger">Debe insertar un primer apellido y que sea válido</small>
                             </div>
                             <div class="form-group">
                                 <label>Nacionalidad</label>
-                                <input ngModel #nacionalidad="ngModel" [class.is-invalid]="nacionalidad.invalid && nacionalidad.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nacionalidad">
+                                <input ngModel #nacionalidad="ngModel" [class.is-invalid]="nacionalidad.invalid && nacionalidad.touched" class="form-control" type="text"  required maxlength="30" pattern="^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$" name="nacionalidad" placeholder = "{{cliente.Nacionalidad}}">
                                 <small [class.d-none]="nacionalidad.valid || nacionalidad.untouched" class="text-danger">Debe insertar una nacionalidad y que sea válida</small>
                             </div>
                         </div>
@@ -62,14 +62,11 @@
                         <label>Perfil de cliente</label>
                     </div>
                     <select class="form-control" style="padding-top: 0px;padding-bottom: 6px;margin-bottom: 10px;margin-top: -10px;">
-                        <option value="12" selected="">Agente</option>
-                        <option value="13">Constructor</option>
-                        <option value="14">Propietario</option>
-                        <option value="15">Anunciante</option>
+                        <option selected>{{cliente.Perfil_Cliente}}</option>
                     </select>
                     <div class="form-group">
                         <label>Correo Electrónico</label>
-                        <input ngModel #correo="ngModel" [class.is-invalid]="correo.invalid && correo.touched" class="form-control" type="email"  required maxlength="30" pattern = "^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" name="correo">
+                        <input ngModel #correo="ngModel" [class.is-invalid]="correo.invalid && correo.touched" class="form-control" type="email"  required maxlength="30" pattern = "^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" name="correo" placeholder = "{{cliente.Correo}}">
                         <small [class.d-none]="correo.valid || correo.untouched" class="text-danger">Correo es necesario y debe insertar un coreo válido</small>
                     </div>
                 <div class="form-row">
@@ -77,7 +74,7 @@
                         <div class="form-group">
                             <label>Usuario</label>
                         </div>
-                        <input ngModel #usuario="ngModel" [class.is-invalid]="usuario.invalid && usuario.touched" class="form-control" type="text"  required maxlength="30" name="usuario" style="margin-top: -17px;">
+                        <input ngModel #usuario="ngModel" [class.is-invalid]="usuario.invalid && usuario.touched" class="form-control" type="text"  required maxlength="30" name="usuario" style="margin-top: -17px;" placeholder = "{{cliente.Usuario}}">
                         <small [class.d-none]="usuario.valid || usuario.untouched" class="text-danger">Usuario es necesario</small>
                     </div>
                     <div class="col-sm-12 col-md-6">
@@ -92,7 +89,7 @@
                 <div class="form-row">
                     <div class="col-md-12 content-right">
                         <button class="btn btn-primary form-btn" type="submit" routerLink= "/cliente">Guardar Cambios</button>
-                        <button class="btn btn-danger form-btn" type="reset" routerLink="">Eliminar Cuenta</button> 
+                        <button class="btn btn-danger form-btn" type="button" (click)="eliminarCliente()">Eliminar Cuenta</button> 
                         <button class="btn btn-danger form-btn" type="reset" style="background-color:rgb(56,235,74);" routerLink= "/cliente">Volver atrás</button>
                     </div>
                 </div>

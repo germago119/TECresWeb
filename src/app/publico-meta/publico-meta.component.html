@@ -31,10 +31,10 @@
                                 <div class="form-group">
                                     <label>Género</label>
                                 </div>
-                                <select class="form-control" style="margin-top: -15px;">
-                                    <option value="12" selected="">Hombres</option>
-                                    <option value="13">Mujeres</option>
-                                    <option value="14">Otro</option>
+                                <select class="form-control" ngModel #genero="ngModel" name="genero" style="margin-top: -15px;">
+                                    <option value="Hombres" >Hombres</option>
+                                    <option value="Mujeres">Mujeres</option>
+                                    <option value="Otro">Otro</option>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -65,16 +65,16 @@
                             </div>
                         </div>
                         <label style="margin-left: 90px;">Provincia</label>
-                        <select class="form-control" style="margin-left: 90px;width: 300px;">
-                            <option value="12" selected="">Alajuela</option>
+                        <select class = "form-control" ngModel #provincia="ngModel" name="provincia" required (change)="provinciaSeleccionada($event.target.value)" style="margin-left: 90px;width: 300px;">
+                            <option  *ngFor="let provincia of provinciasList" [value]="provincia" >{{provincia}}</option>
                         </select>
                         <label style="margin-left: 90px;margin-top: 20px;">Cantón</label>
-                        <select class="form-control" style="width: 300px;margin-left: 90px;">
-                            <option value="12" selected="">Alajuela</option>
+                        <select class = "form-control" ngModel #canton="ngModel" name="canton" required (change)="cantonSeleccionado($event.target.value)" style="width: 300px;margin-left: 90px;">
+                            <option  *ngFor = "let canton of cantonesList" [value]="canton" >{{canton}}</option>
                             </select>
                             <label style="margin-top: 20px;margin-left: 90px;">Distrito</label>
-                            <select class="form-control" style="margin-left: 90px;width: 300px;">
-                                <option value="12" selected="">Desamparados</option>
+                            <select class = "form-control" ngModel #distrito="ngModel" name="distrito" required style="margin-left: 90px;width: 300px;">
+                                <option *ngFor="let distrito of distritosList" [value]="distrito">{{distrito}}</option>
                             </select>
                             <hr>
                             <div class="form-row">
